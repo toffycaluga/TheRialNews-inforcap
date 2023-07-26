@@ -1,6 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @article %>
+<!-- Mostrar comentarios existentes -->
+        <%= render 'comment' ,article:@article %>
+<!-- Agregar un nuevo comentario-->
+<%= render 'comment_form' ,article:@article%>
 
 <div>
   <%= link_to "Edit this article", edit_article_path(@article) %> |
