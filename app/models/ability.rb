@@ -28,5 +28,16 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
+    
+    user ||= User.new # Si el usuario no ha iniciado sesión, se crea un usuario invitado
+    if user.admin?
+      # Permisos para el administrador
+      can :manage, :all
+    else
+      # Permisos para usuarios registrados
+      can :read, Article
+      can :create, Comment
+      can :destroy, Comment, user_id: user.id
+    end
   end
 end
