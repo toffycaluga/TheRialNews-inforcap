@@ -8,9 +8,10 @@
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
 #  remember_created_at    :datetime
-#  name                   :string
+#  name                   :string           not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  admin                  :boolean          default(FALSE)
 #
 class User < ApplicationRecord
   validate :name
@@ -18,4 +19,6 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_many :comments, as: :commentable,dependent: :destroy
 end
