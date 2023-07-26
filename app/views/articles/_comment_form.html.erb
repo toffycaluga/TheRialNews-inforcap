@@ -1,0 +1,10 @@
+
+<%= form_with(model: @article.comments.build, url: article_comments_path(@article)) do |form| %>
+  <%= form.hidden_field :commentable_id, value: @article.id %>
+  <%= form.hidden_field :commentable_type, value: @article.class.to_s %>
+
+  <div class="field">
+    <%= form.text_area :content, placeholder: 'Escribe un comentario...' %>
+  </div>
+  <%= form.submit 'Agregar comentario', class: 'btn btn-primary' %>
+<% end %>
