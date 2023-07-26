@@ -12,6 +12,13 @@
 
   <body>
     <main class="container">
+      
+      <% if user_signed_in? %>
+          <%= button_to 'cerrar sesion ', destroy_user_session_path,method: :delete %>
+      <% else %>
+          <%= link_to 'iniciar sesion', new_user_session_path %>
+      <% end %>
+      
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
       <%= yield %>
