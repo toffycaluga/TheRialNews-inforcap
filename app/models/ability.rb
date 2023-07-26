@@ -36,8 +36,8 @@ class Ability
     else
       # Permisos para usuarios registrados
       can :read, Article
-      can :create, Comment
-      can :destroy, Comment, user_id: user.id
+      # can :create, Comment
+      # can :destroy, Comment, user_id: user.id
     end
   end
 end
