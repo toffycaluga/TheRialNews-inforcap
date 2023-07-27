@@ -13,12 +13,12 @@
 
 one:
   content: MyText
-  user: one
-  commentable_type: MyString
+  user: user_one
+  commentable_type: Article
   commentable_id: 1
 
 two:
   content: MyText
-  user: two
-  commentable_type: MyString
+  user: user_two
+  commentable_type: Article
   commentable_id: 1
