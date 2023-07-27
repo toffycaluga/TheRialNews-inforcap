@@ -7,12 +7,18 @@
 #  description :text
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  user_id     :bigint           not null
 #
 
-one:
-  title: MyString
-  description: MyText
-
-two:
-  title: MyString
-  description: MyText
+first_article:
+  user: user_one
+  title: Di First article
+  description: Description for The First article
+second_article:
+  user: user_one
+  title: Di Second article
+  description: Description for The Second article
+third_article:
+  user: user_two
+  title: Di Third article
+  description: Description for The Third article

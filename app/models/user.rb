@@ -21,4 +21,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :comments, as: :commentable,dependent: :destroy
+  has_many :articles
 end

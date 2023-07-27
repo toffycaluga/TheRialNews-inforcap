@@ -7,48 +7,48 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Crea un usuario administrador de ejemplo
-puts 'creando Admin..'
-User.create!(
-    email: 'admin@example.com',
-    name:'admin',
-    password: '123456', 
-    admin: true
-  )
-puts 'Admin creado con exito!'
-# Obtener el primer usuario como administrador
-admin_user = User.first
+# puts 'creando Admin..'
+# User.create!(
+#     email: 'admin@example.com',
+#     name:'admin',
+#     password: '123456', 
+#     admin: true
+#   )
+# puts 'Admin creado con exito!'
+# # Obtener el primer usuario como administrador
+# admin_user = User.first
 
-# Crear 5 usuarios
-5.times do
-    User.create!(
-        name: Faker::Name.name,
-        email: Faker::Internet.unique.email,
-        password: 'password' 
-    )
-  end
+# # Crear 5 usuarios
+# 5.times do
+#     User.create!(
+#         name: Faker::Name.name,
+#         email: Faker::Internet.unique.email,
+#         password: 'password' 
+#     )
+#   end
   
-  puts "Usuarios creados."
+#   puts "Usuarios creados."
   
-# Crear 5 publicaciones solo por el administrador
-5.times do |n|
-    article=Article.create!(
-      title: Faker::Book.unique.title,
-      description: Faker::Lorem.paragraph
-    )
+# # Crear 5 publicaciones solo por el administrador
+# 5.times do |n|
+#     article=Article.create!(
+#       title: Faker::Book.unique.title,
+#       description: Faker::Lorem.paragraph
+#     )
   
-    puts "Publicación '#{article.title}' creada."
+#     puts "Publicación '#{article.title}' creada."
     
   
-      # Crear 3 comentarios para cada publicación
-  3.times do
-    user = User.all.sample
-    article.comments.create!(
-      content: Faker::Lorem.sentence,
-      user: user # Asignamos un usuario aleatorio como autor del comentario
-    )
-  end
+#       # Crear 3 comentarios para cada publicación
+#   3.times do
+#     user = User.all.sample
+#     article.comments.create!(
+#       content: Faker::Lorem.sentence,
+#       user: user # Asignamos un usuario aleatorio como autor del comentario
+#     )
+#   end
   
-    puts "Comentarios creados para la publicación '#{article.title}'."
-  end
+#     puts "Comentarios creados para la publicación '#{article.title}'."
+#   end
   
-  puts "¡Datos de ejemplo creados exitosamente!"
+#   puts "¡Datos de ejemplo creados exitosamente!"

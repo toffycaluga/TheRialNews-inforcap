@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
   load_and_authorize_resource
+
   before_action :set_article, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!,only: [:create, :edit ,:update,:destroy]
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, alert: "Acceso denegado."
   end
@@ -15,7 +17,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    @article = current_user.articles.build
   end
 
   # GET /articles/1/edit
@@ -24,7 +26,7 @@ class ArticlesController < ApplicationController
 
   # POST /articles or /articles.json
   def create
-    @article = Article.new(article_params)
+    @article = current_user.articles.build(article_params)
 
     respond_to do |format|
       if @article.save
